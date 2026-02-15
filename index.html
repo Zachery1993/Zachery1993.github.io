@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zachery | Personal Interests</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom styles and animations */
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Gradient background animation */
+        .hero-gradient {
+            background: linear-gradient(-45deg,
+                #0f0c29,
+                #302b63,
+                #24243e,
+                #0f0c29
+            );
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glassmorphism effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Card hover effects */
+        .interest-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .interest-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .interest-card:hover .card-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .card-icon {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Button glow effect */
+        .explore-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .explore-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: left 0.5s ease;
+        }
+
+        .explore-btn:hover::before {
+            left: 100%;
+        }
+
+        .explore-btn:hover {
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Text reveal animation */
+        .reveal-text {
+            animation: reveal 1s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes reveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f0c29;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #8b5cf6, #6366f1);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-[#0f0c29] text-white overflow-x-hidden">
+
+    <!-- Hero Panel -->
+    <section class="hero-gradient min-h-[120vh] flex flex-col items-center justify-center relative overflow-hidden">
+
+        <!-- Floating Particles -->
+        <div class="particle" style="width: 20px; height: 20px; left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="width: 30px; height: 30px; left: 30%; animation-delay: 5s;"></div>
+        <div class="particle" style="width: 15px; height: 15px; left: 50%; animation-delay: 10s;"></div>
+        <div class="particle" style="width: 25px; height: 25px; left: 70%; animation-delay: 15s;"></div>
+        <div class="particle" style="width: 18px; height: 18px; left: 90%; animation-delay: 8s;"></div>
+        <div class="particle" style="width: 22px; height: 22px; left: 20%; animation-delay: 12s;"></div>
+        <div class="particle" style="width: 28px; height: 28px; left: 60%; animation-delay: 3s;"></div>
+        <div class="particle" style="width: 16px; height: 16px; left: 80%; animation-delay: 7s;"></div>
+
+        <!-- Hero Content -->
+        <div class="text-center z-10 px-4">
+            <!-- Main Title -->
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 reveal-text bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent">
+                Welcome to My World
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-xl md:text-2xl text-gray-300 mb-4 reveal-text delay-1 font-light">
+                Where Creativity Meets Passion
+            </p>
+
+            <!-- Description -->
+            <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto reveal-text delay-2">
+                Exploring the intersection of technology, art, and storytelling
+            </p>
+
+            <!-- Explore Button -->
+            <a href="#interests" class="explore-btn inline-block px-10 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full text-lg font-semibold reveal-text delay-3 hover:from-purple-500 hover:to-indigo-500">
+                <i class="fas fa-compass mr-2"></i>
+                Explore My Interests
+            </a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl text-gray-400"></i>
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section id="interests" class="py-24 px-4 md:px-8 lg:px-16 bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e]">
+
+        <!-- Section Title -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                My Passions
+            </h2>
+            <p class="text-gray-400 text-lg max-w-xl mx-auto">
+                Four corners of my creative universe
+            </p>
+        </div>
+
+        <!-- Interest Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+
+            <!-- Coding Card -->
+            <div class="interest-card glass-card rounded-2xl p-8 text-center cursor-pointer group">
+                <div class="card-icon w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+                    <i class="fas fa-code text-4xl text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-cyan-400 transition-colors">
+                    Coding
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Building digital experiences with clean code and innovative solutions. Turning ideas into reality, one line at a time.
+                </p>
+                <div class="mt-6 flex justify-center gap-2 flex-wrap">
+                    <span class="px-3 py-1 bg-blue-500/20 rounded-full text-xs text-blue-400">JavaScript</span>
+                    <span class="px-3 py-1 bg-blue-500/20 rounded-full text-xs text-blue-400">Python</span>
+                    <span class="px-3 py-1 bg-blue-500/20 rounded-full text-xs text-blue-400">Web Dev</span>
+                </div>
+            </div>
+
+            <!-- Photography Card -->
+            <div class="interest-card glass-card rounded-2xl p-8 text-center cursor-pointer group">
+                <div class="card-icon w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center">
+                    <i class="fas fa-camera-retro text-4xl text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-pink-400 transition-colors">
+                    Photography
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Capturing moments that tell stories. Through my lens, I find beauty in the ordinary and magic in the mundane.
+                </p>
+                <div class="mt-6 flex justify-center gap-2 flex-wrap">
+                    <span class="px-3 py-1 bg-pink-500/20 rounded-full text-xs text-pink-400">Portrait</span>
+                    <span class="px-3 py-1 bg-pink-500/20 rounded-full text-xs text-pink-400">Street</span>
+                    <span class="px-3 py-1 bg-pink-500/20 rounded-full text-xs text-pink-400">Nature</span>
+                </div>
+            </div>
+
+            <!-- Music Card -->
+            <div class="interest-card glass-card rounded-2xl p-8 text-center cursor-pointer group">
+                <div class="card-icon w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
+                    <i class="fas fa-music text-4xl text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-amber-400 transition-colors">
+                    Music
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    The soundtrack of my life. Whether listening or creating, music is my escape and my inspiration.
+                </p>
+                <div class="mt-6 flex justify-center gap-2 flex-wrap">
+                    <span class="px-3 py-1 bg-amber-500/20 rounded-full text-xs text-amber-400">Guitar</span>
+                    <span class="px-3 py-1 bg-amber-500/20 rounded-full text-xs text-amber-400">Piano</span>
+                    <span class="px-3 py-1 bg-amber-500/20 rounded-full text-xs text-amber-400">Playlist</span>
+                </div>
+            </div>
+
+            <!-- Writing Card -->
+            <div class="interest-card glass-card rounded-2xl p-8 text-center cursor-pointer group">
+                <div class="card-icon w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center">
+                    <i class="fas fa-pen-fancy text-4xl text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-emerald-400 transition-colors">
+                    Writing
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Weaving words into worlds. From technical articles to creative stories, writing is how I share my perspective.
+                </p>
+                <div class="mt-6 flex justify-center gap-2 flex-wrap">
+                    <span class="px-3 py-1 bg-emerald-500/20 rounded-full text-xs text-emerald-400">Blog</span>
+                    <span class="px-3 py-1 bg-emerald-500/20 rounded-full text-xs text-emerald-400">Stories</span>
+                    <span class="px-3 py-1 bg-emerald-500/20 rounded-full text-xs text-emerald-400">Essays</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="text-center mt-20">
+            <p class="text-gray-500 text-sm mb-4">Want to connect or collaborate?</p>
+            <div class="flex justify-center gap-4">
+                <a href="#" class="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:bg-purple-600/30 transition-all">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="#" class="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:bg-blue-600/30 transition-all">
+                    <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:bg-pink-600/30 transition-all">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:bg-blue-500/30 transition-all">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-gray-500 text-sm bg-[#0f0c29] border-t border-gray-800">
+        <p>© 2026 Zachery. Crafted with passion and code.</p>
+    </footer>
+
+    <!-- Simple JavaScript for smooth scroll and interactions -->
+    <script>
+        // Smooth scroll for explore button
+        document.querySelector('.explore-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#interests').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Add intersection observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.interest-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                const speed = (index + 1) * 0.1;
+                particle.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
